@@ -1,0 +1,9 @@
+FROM golang:latest as builder
+WORKDIR /app
+COPY . /app/
+RUN CGO_ENABLED=0 go build -o booklib
+
+FROM alpine:latest
+WORKDIR /app
+COPY --from=builder /app/booklib .
+CMD ["./booklib"]
