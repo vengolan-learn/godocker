@@ -9,6 +9,8 @@ ADD . /app/
 EXPOSE $PORT
 
 
+
+
 #CGO_ENABLED=0 that the generated build is statically linked(meaning no dynamic linking libraries uses at runtime)
 RUN CGO_ENABLED=0 go build -o booklib 
 
